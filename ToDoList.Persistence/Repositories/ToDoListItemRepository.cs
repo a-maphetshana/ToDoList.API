@@ -42,15 +42,21 @@ namespace ToDoList.Persistence.Repositories
             _context.ToDoListItem.Update(toDoListItem);
         }
 
+        public void Archive(ToDoListItem toDoListItem)
+        {
+            toDoListItem.IsDeleted = true;
+            Update(toDoListItem);
+        }
+
+        public void Restore(ToDoListItem toDoListItem)
+        {
+            toDoListItem.IsDeleted = false;
+            Update(toDoListItem);
+        }
+
         public void Delete(ToDoListItem toDoListItem)
         {
-            //var param = new DynamicParameters();
-            //param.Add("@ToDoListItemID", dbType: DbType.Int32, value: toDoListItem?.ToDoListItemID, direction: ParameterDirection.Input);
-            //param.Add("@LastModifiedBy", dbType: DbType.String, value: toDoListItem?.LastModifiedBy, direction: ParameterDirection.Input);
-
-            //string query = $"exec {QueryCommandsEnum.sp_toDoListItem_delete} @ToDoListItemID, @LastModifiedBy";
-
-            //_writeDbConnection.ExecuteAsync(query, param);
+            _context.ToDoListItem.Remove(toDoListItem);
         }
     }
 }

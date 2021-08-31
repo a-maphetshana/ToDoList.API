@@ -68,6 +68,44 @@ namespace FruitSA.Persistence.Services
 
         }
 
+        public async Task<ToDoListItemResponse> ArchiveAsync(long id)
+        {
+            var existingToDoListItem = await _toDoListItemRepository.FindByIdAsync(id);
+
+            if (existingToDoListItem == null)
+                return new ToDoListItemResponse("ToDoListItem not found");
+
+            try
+            {
+                _toDoListItemRepository.Archive(existingToDoListItem);
+                await _unitOfWork.CompleteAsync();
+                return new ToDoListItemResponse(existingToDoListItem);
+            }
+            catch (Exception ex)
+            {
+                return new ToDoListItemResponse($"An error occured while deleting the toDoListItem: {ex.Message}");
+            }
+        }
+
+        public async Task<ToDoListItemResponse> RestoreAsync(long id)
+        {
+            var existingToDoListItem = await _toDoListItemRepository.FindByIdAsync(id);
+
+            if (existingToDoListItem == null)
+                return new ToDoListItemResponse("ToDoListItem not found");
+
+            try
+            {
+                _toDoListItemRepository.Restore(existingToDoListItem);
+                await _unitOfWork.CompleteAsync();
+                return new ToDoListItemResponse(existingToDoListItem);
+            }
+            catch (Exception ex)
+            {
+                return new ToDoListItemResponse($"An error occured while deleting the toDoListItem: {ex.Message}");
+            }
+        }
+
         public async Task<ToDoListItemResponse> DeleteAsync(long id)
         {
             var existingToDoListItem = await _toDoListItemRepository.FindByIdAsync(id);

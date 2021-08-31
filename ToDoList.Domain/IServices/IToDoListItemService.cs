@@ -14,6 +14,8 @@ namespace ToDoList.Domain.IServices
         Task<ToDoListItem> FindByIdAsync(long id);
         Task<ToDoListItemResponse> SaveAsync(ToDoListItem toDoListItem);
         Task<ToDoListItemResponse> UpdateAsync(long id, ToDoListItem toDoListItem);
+        Task<ToDoListItemResponse> ArchiveAsync(long id);
+        Task<ToDoListItemResponse> RestoreAsync(long id);
         Task<ToDoListItemResponse> DeleteAsync(long id);
     }
 }

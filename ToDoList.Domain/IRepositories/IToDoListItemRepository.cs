@@ -13,6 +13,8 @@ namespace ToDoList.Domain.IRepositories
         Task AddAsync(ToDoListItem toDoListItem);
         Task<ToDoListItem> FindByIdAsync(long id);
         void Update(ToDoListItem toDoListItem);
+        void Archive(ToDoListItem toDoListItem);
+        void Restore(ToDoListItem toDoListItem);
         void Delete(ToDoListItem toDoListItem);
     }
 }
