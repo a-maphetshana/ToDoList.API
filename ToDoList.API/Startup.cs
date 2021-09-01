@@ -41,7 +41,6 @@ namespace ToDoList.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToDoList.API", Version = "v1" });
             });
-            services.AddApiVersioning();
             services.AddApiVersioning(o => {
                 o.ReportApiVersions = true;
                 o.AssumeDefaultVersionWhenUnspecified = true;
