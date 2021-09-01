@@ -24,7 +24,7 @@ namespace ToDoList.Persistence.Repositories
 
         public async Task<IEnumerable<ToDoListItem>> ListAsync()
         {
-            return await Task.FromResult(_context.ToDoListItem.Where(x => !x.IsDeleted).ToList());
+            return await Task.FromResult(_context.ToDoListItem.ToList());
         }
 
         public async Task AddAsync(ToDoListItem toDoListItem)
