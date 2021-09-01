@@ -13,7 +13,7 @@ namespace ToDoList.API.Controllers
 {
     [ApiController]
     [ApiVersion("1.0")]
-    [Route("[controller]")]
+    [Route("{version:apiVersion}/[controller]")]
     public class ToDoListController : ControllerBase
     {
         private readonly ILogger<ToDoListController> _logger;
