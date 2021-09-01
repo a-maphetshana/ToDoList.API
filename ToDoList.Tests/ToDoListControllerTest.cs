@@ -17,7 +17,6 @@ namespace ToDoList.Tests
         #region Property  
         public Mock<IToDoListItemService> mock = new Mock<IToDoListItemService>();
         private readonly Mock<ILogger<ToDoListController>> _logger = new Mock<ILogger<ToDoListController>>();
-        //private readonly Mock<IMapper> _mapper = new Mock<IMapper>();
         private static IMapper _mapper;
         #endregion
 
