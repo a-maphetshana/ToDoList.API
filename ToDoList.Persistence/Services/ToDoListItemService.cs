@@ -55,6 +55,7 @@ namespace FruitSA.Persistence.Services
                 return new ToDoListItemResponse("ToDoListItem not found");
 
             existingToDoListItem.Name = toDoListItem.Name;
+            existingToDoListItem.IsCompleted = toDoListItem.IsCompleted;
 
             try
             {
