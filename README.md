@@ -1,5 +1,9 @@
 # todo-list-api
-CRUD API for TODO lists
+-  CRUD API for TODO lists, crafted with .Net Core 5
+-  Uses in-memory SQL storage for demo/easy testing, with easy setup to switch.
+-  Well-configured to cater for raw sql query excecution with dapper.
+-  Supports api versioning
+-  Uses xUnit framework for unit tests
 
 ## TODO List
 A TODO list is a collection of tasks which can be in the state of completed or not completed.
