@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,6 +15,7 @@ namespace ToDoList.API.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [Route("{version:apiVersion}/[controller]")]
+    [EnableCors("CorsPolicy")]
     public class ToDoListController : ControllerBase
     {
         private readonly ILogger<ToDoListController> _logger;
